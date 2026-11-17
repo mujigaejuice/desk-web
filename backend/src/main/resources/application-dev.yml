@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    # compose.yaml에서 5433으로 노출(5432는 다른 프로젝트가 사용 중)
+    url: jdbc:postgresql://localhost:5433/calldesk
+    username: calldesk
+    password: calldesk
+  mail:
+    host: localhost
+    port: 1025

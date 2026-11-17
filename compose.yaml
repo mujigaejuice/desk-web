@@ -1,0 +1,22 @@
+services:
+  db:
+    image: postgres:18
+    environment:
+      POSTGRES_DB: calldesk
+      POSTGRES_USER: calldesk
+      POSTGRES_PASSWORD: calldesk
+      TZ: Asia/Seoul
+    ports:
+      # 5432는 다른 프로젝트 컨테이너(ktc4-postgres)가 쓰고 있어 5433으로 노출
+      - "5433:5432"
+    volumes:
+      - calldesk-db:/var/lib/postgresql
+
+  mail:
+    image: axllent/mailpit
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+
+volumes:
+  calldesk-db:
